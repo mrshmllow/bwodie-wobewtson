@@ -4,8 +4,8 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Browdie Rowbinson",
-  description: "View brodie robinson videos in resource reading list form",
+  title: "bwodie-wobewtson",
+  description: "brodie robertson if he was good",
 };
 
 export default function RootLayout({
