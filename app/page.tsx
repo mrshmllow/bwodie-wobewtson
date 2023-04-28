@@ -6,7 +6,7 @@ interface Resource {
 }
 
 async function getDescription(videoId: string): Promise<{ descriptionParagraph: string; resources: Resource[] }> {
-  const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${"AIzaSyAp0q6VB2OSUqneDWz9If5YYvcGuU8q7ds"}`);
+  const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${process.env.API_KEY}`);
   const description = await response.json() as {
     items: {
       snippet: {
@@ -50,7 +50,7 @@ async function getDescription(videoId: string): Promise<{ descriptionParagraph: 
 }
 
 async function getData() {
-  const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=id,snippet&channelId=UCld68syR8Wi-GY_n4CaoJGA&maxResults=20&order=date&type=video&key=${"AIzaSyAp0q6VB2OSUqneDWz9If5YYvcGuU8q7ds"}`);
+  const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=id,snippet&channelId=UCld68syR8Wi-GY_n4CaoJGA&maxResults=20&order=date&type=video&key=${process.env.API_KEY}`);
 
   if (!res.ok) {
     throw new Error('Failed to fetch data');
